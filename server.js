@@ -3,10 +3,15 @@ const sequelize = require("./common/models/database");
 const defineUser = require("./common/models/user");
 const User = defineUser(sequelize);
 
-sequelize.sync()
-
 const app = express();
 const PORT = 3000;
+
+app.use(express.json());
+
+sequelize.sync();
+
+const authRoutes = require("./authorization/routes");
+app.use("/", authRoutes);
 
 app.get("/", (req, res) => {
     res.send("Hello from Cloud App");
