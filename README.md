@@ -1,35 +1,55 @@
+![Node.js](https://img.shields.io/badge/node.js-18-green)
 # Cloud Deployment Pipeline
 
-Simple REST API built with Node.js and Express.
-This project demonstrates how a small backend service can be prepared for **containerization, CI/CD pipelines, and cloud deployment**.
 
-## Features
+REST API built with **Node.js and Express** as part of a backend and cloud deployment learning project.
+The goal of this project is to build a simple API that can later be **containerized, deployed to the cloud, and integrated with CI/CD pipelines**.
 
-* Lightweight REST API
-* Health check endpoint for monitoring
-* Server time endpoint
-* Simple service information endpoint
-* Docker container support
-* Designed to be deployed in cloud environments
+The application currently implements a basic **authorization module and user model**, storing data in a local SQLite database.
 
-## Technologies
+---
 
-* Node.js
-* Express.js
-* Docker
+# Features
 
-## Project Structure
+* REST API built with **Node.js and Express**
+* Authorization module with **controllers and routes**
+* User model for handling user data
+* SQLite database for local storage
+* Environment configuration using `.env`
+* Docker support for containerization
+* API testing with **Postman**
+
+---
+
+# Project Structure
 
 ```
 cloud-deployment-pipeline
 │
-├── server.js
+├── authorization
+│   ├── controller.js
+│   └── routes.js
+│
+├── common_models
+│   ├── database.js
+│   └── User.js
+│
+├── storage
+│   └── data.db
+│
+├── .env
+├── .env.example
+├── .gitignore
+├── dockerfile
 ├── package.json
-├── Dockerfile
-└── README.md
+├── package-lock.json
+├── README.md
+└── server.js
 ```
 
-## Installation
+---
+
+# Installation
 
 Clone the repository:
 
@@ -44,15 +64,29 @@ Install dependencies:
 npm install
 ```
 
-## Running the Application
+---
 
-Start the server locally:
+# Environment Variables
+
+Create a `.env` file based on `.env.example`.
+
+Example:
+
+```
+PORT=3000
+```
+
+---
+
+# Running the Application
+
+Start the server:
 
 ```
 node server.js
 ```
 
-The API will run at:
+The API will run on:
 
 ```
 http://localhost:3000
@@ -60,94 +94,75 @@ http://localhost:3000
 
 ---
 
-# Running with Docker
+# API Testing
 
-Build the Docker image:
+The API can be tested using **Postman**.
+
+Example request body for creating a user:
 
 ```
-docker build -t cloud-deployment-pipeline .
+POST /users
+```
+
+Example JSON payload:
+
+```
+{
+  "username": "developer",
+  "email": "dev@example.com",
+  "password": "securepass123",
+  "firstName": "Dev",
+  "lastName": "User",
+  "age": 28
+}
+```
+
+---
+
+# Database
+
+The application uses **SQLite** for local storage.
+
+Database file location:
+
+```
+storage/data.db
+```
+
+---
+
+# Docker
+
+The project includes a Dockerfile for containerization.
+
+Build the image:
+
+```
+docker build -t cloud-api .
 ```
 
 Run the container:
 
 ```
-docker run -p 3000:3000 cloud-deployment-pipeline
-```
-
-The application will be available at:
-
-```
-http://localhost:3000
+docker run -p 3000:3000 cloud-api
 ```
 
 ---
 
-## API Endpoints
+# Future Improvements
 
-### GET /
+Planned improvements for this project include:
 
-Basic welcome endpoint.
-
-Example response:
-
-```
-Hello from Cloud App
-```
-
----
-
-### GET /health
-
-Used for health checks in cloud environments.
-
-Example response:
-
-```
-{
-  "status": "ok"
-}
-```
-
----
-
-### GET /time
-
-Returns the current server time.
-
-Example response:
-
-```
-{
-  "time": "2026-03-09T12:00:00.000Z"
-}
-```
-
----
-
-### GET /info
-
-Returns basic information about the service.
-
-Example response:
-
-```
-{
-  "service": "cloud-deployment-pipeline",
-  "version": "1.0.0"
-}
-```
-
----
-
-## Future Improvements
-
+* JWT authentication
+* request validation
+* improved error handling
+* logging middleware
 * CI/CD pipeline using GitHub Actions
-* Docker image publishing to container registry
-* Deployment to a cloud platform (Azure / AWS / GCP)
-* Infrastructure provisioning using Terraform
+* deployment to cloud platforms (Azure / AWS / GCP)
 
 ---
 
-## Purpose
+# Purpose
 
-This project demonstrates a basic backend service prepared for a **modern cloud deployment workflow**, including containerization, automated builds, and cloud deployment.
+This project is part of my learning path toward **backend development, cloud computing, and DevOps practices**.
+It serves as a foundation for experimenting with containerization, API development, and cloud deployments.
