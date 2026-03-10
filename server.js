@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const sequelize = require("./common/models/database");
 const defineUser = require("./common/models/user");
@@ -16,12 +17,18 @@ app.use("/", authRoutes);
 app.get("/", (req, res) => {
     res.send("Hello from Cloud App");
 })
+app.get("/signup", (req, res) => {
+    res.send("Signup page");
+}); 
 
 app.get("/health", (req, res) => {
     res.send("ok");
 });
 
 app.get("/time", (req, res) => {
+    res.send({ time: new Date() });
+});
+app.get("/date", (req, res) => {
     res.send({ time: new Date() });
 });
 
