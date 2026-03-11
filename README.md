@@ -68,13 +68,12 @@ npm install
 
 # Environment Variables
 
-Create a `.env` file based on `.env.example`.
+Create a `.env` file based on `.env.example`. **This file is required for the application to run.**
 
-Example:
-
-```
+Example content:
+```text
 PORT=3000
-```
+JWT_SECRET=your_super_secret_key
 
 ---
 
@@ -138,13 +137,13 @@ The project includes a Dockerfile for containerization.
 Build the image:
 
 ```
-docker build -t cloud-api .
+docker build -t cloud-deployment-pipeline .
 ```
 
 Run the container:
 
 ```
-docker run -p 3000:3000 cloud-api
+docker run -p 3000:3000 --env-file .env cloud-deployment-pipeline
 ```
 
 ---
