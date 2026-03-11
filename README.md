@@ -18,6 +18,8 @@ The application currently implements a basic **authorization module and user mod
 * Environment configuration using `.env`
 * Docker support for containerization
 * API testing with **Postman**
+* JWT authentication
+* request validation
 
 ---
 
@@ -152,8 +154,6 @@ docker run -p 3000:3000 --env-file .env cloud-deployment-pipeline
 
 Planned improvements for this project include:
 
-* JWT authentication
-* request validation
 * improved error handling
 * logging middleware
 * CI/CD pipeline using GitHub Actions
