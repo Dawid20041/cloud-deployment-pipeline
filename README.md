@@ -42,7 +42,8 @@ cloud-deployment-pipeline
 ├── .env
 ├── .env.example
 ├── .gitignore
-├── dockerfile
+├── Dockerfile
+├── .dockerignore
 ├── package.json
 ├── package-lock.json
 ├── README.md
