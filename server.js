@@ -1,7 +1,8 @@
 require('dotenv').config();
+console.log("DEBUG: Klucz JWT to:", process.env.JWT_SECRET ? "OK (ukryty)" : "PUSTY!");
 const express = require("express");
 const sequelize = require("./common/models/database");
-const defineUser = require("./common/models/user");
+const defineUser = require("./common/models/User");
 const User = defineUser(sequelize);
 
 const app = express();
@@ -29,7 +30,7 @@ app.get("/time", (req, res) => {
     res.send({ time: new Date() });
 });
 app.get("/date", (req, res) => {
-    res.send({ time: new Date() });
+    res.send({ date: new Date() });
 });
 
 app.get("/info", (req, res) => {
