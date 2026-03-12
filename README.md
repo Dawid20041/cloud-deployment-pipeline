@@ -1,6 +1,6 @@
 ![Node.js](https://img.shields.io/badge/node.js-18-green)
-# Cloud Deployment Pipeline
 
+# Cloud Deployment Pipeline
 
 REST API built with **Node.js and Express** as part of a backend and cloud deployment learning project.
 The goal of this project is to build a simple API that can later be **containerized, deployed to the cloud, and integrated with CI/CD pipelines**.
@@ -19,7 +19,7 @@ The application currently implements a basic **authorization module and user mod
 * Docker support for containerization
 * API testing with **Postman**
 * JWT authentication
-* request validation
+* Request validation
 
 ---
 
@@ -71,12 +71,15 @@ npm install
 
 # Environment Variables
 
-Create a `.env` file based on `.env.example`. **This file is required for the application to run.**
+Create a `.env` file based on `.env.example`.
+This file is required for the application to run.
 
 Example content:
-```text
+
+```
 PORT=3000
 JWT_SECRET=your_super_secret_key
+```
 
 ---
 
@@ -100,7 +103,7 @@ http://localhost:3000
 
 The API can be tested using **Postman**.
 
-Example request body for creating a user:
+Example request for creating a user:
 
 ```
 POST /users
@@ -155,10 +158,10 @@ docker run -p 3000:3000 --env-file .env cloud-deployment-pipeline
 
 Planned improvements for this project include:
 
-* improved error handling
-* logging middleware
+* Improved error handling
+* Logging middleware
 * CI/CD pipeline using GitHub Actions
-* deployment to cloud platforms (Azure / AWS / GCP)
+* Deployment to cloud platforms (Azure / AWS / GCP)
 
 ---
 
