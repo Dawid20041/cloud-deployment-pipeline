@@ -1,6 +1,7 @@
 ![Node.js](https://img.shields.io/badge/node.js-18-green)
 ![Docker](https://img.shields.io/badge/docker-ready-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+![CI](https://github.com/Dawid20041/cloud-deployment-pipeline/actions/workflows/ci.yml/badge.svg)
 
 # Cloud Deployment Pipeline
 
